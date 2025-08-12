@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Autentificação
+{% endblock %}
+
+{% block content %}
+
+    <style>
+        table tr th, table tr td:first-child {
+            text-align: left;
+            padding-right: 10px;
+        }
+        .btn {
+        margin-left: 5px;
+        }
+    </style>
+
+    <h2>Autentificação</h2>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+                
+        <table>
+            {{ login_form.as_table }} 
+        </table>
+        
+        <input type="submit" value="Entrar" class="btn">
+
+    </form>
+
+{% endblock %}

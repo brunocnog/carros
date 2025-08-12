@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Entrar
+{% endblock %}
+
+{% block content %}
+    <style>
+        table tr th, table tr td:first-child {
+            text-align: left;
+            padding-right: 10px;
+        }
+        .form-group {
+        margin-left: 5px;
+        }
+    </style>
+
+    <!--  <form method="post">
+        <h2>Cadastrar Novo Usuário</h2>
+        {% csrf_token %}                
+        <table>
+            {{ user_form.as_table }} 
+        </table>        
+        <input type="submit" value="Criar Usuário" class="btn btn-primary ml-custom">
+        <hr>
+    </form> -->
+    <form method="post">
+        {% csrf_token %}
+
+        <h2>Cadastrar Novo Usuário</h2>
+        
+        <div class="form-group">            
+            <label>Usuário: </label>
+            {{ user_form.username.errors }}
+            {{ user_form.username }}            
+        </div>
+
+        <div class="form-group">
+            <label>Senha: </label>
+            {{ user_form.password1.errors }}
+            {{ user_form.password1 }}            
+        </div>
+
+        <div class="form-group">
+            <label>Confirmar Senha: </label>
+            {{ user_form.password2.errors }}
+            {{ user_form.password2 }}            
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Cadastrar Usuário" class="form-group">
+        </div>
+    </form>
+
+{% endblock %}
