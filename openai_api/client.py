@@ -1,7 +1,7 @@
 import openai
 
 client = openai.OpenAI(
-    api_key="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")
+    api_key="sk-proj-xxx")
 
 
 def get_car_ai_bio(model, brand, year):
